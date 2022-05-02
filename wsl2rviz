@@ -1,0 +1,20 @@
+sudo apt update
+sudo apt upgrade
+
+sudo apt install x11-apps
+
+echo 'export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '\''{print $2}'\''):0.0' >> ~/.profile
+
+xeyes
+
+sudo service x11-common start
+sudo service dbus start
+
+sudo chmod 777 -R ~/.cache/
+
+sudo service dbus restart
+XDG_SESSION_TYPE=x11 gnome-session
+
+sudo apt install ros-melodic-rviz
+
+rviz
